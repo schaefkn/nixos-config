@@ -83,7 +83,8 @@
     xss-lock
     tmux
     (callPackage ./statusbar.nix {})
-    (st.override { conf = builtins.readFile /home/schaefkn/.dotfiles/st-config.h;  }) 
+    (st.override { conf = builtins.readFile /home/schaefkn/.dotfiles/st-config.h;  })
+    (python3.withPackages (ps: with ps; [ flake8 pylint jsonschema psutil numpy aiohttp pyyaml ]))
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
